@@ -1,0 +1,14 @@
+session:
+  key: CaY5iCkYtN7DqXdiYK1BvmGrQuaSA4Tl4bEk9my0jc0=
+admin:
+  email: admin@admin.com
+  password: admin
+database:
+  host: db
+  port: 5432
+  user: player
+  password: my_pass
+  database: my_game
+vk_api:
+  token: твой токен 
+  group_id: идентификатор группы

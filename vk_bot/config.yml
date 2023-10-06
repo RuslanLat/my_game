@@ -1,0 +1,11 @@
+session:
+  key: pe2iPTvPsQ1H8HJGys1v6NI_sP_q49mgTgU4QyrCSB8=
+database:
+  host: db
+  port: 5432
+  user: player
+  password: my_pass
+  database: my_game
+bot:
+  token: твой токен
+  group_id: идентификатор группы

@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:13.3
+    environment:
+      - POSTGRES_DB=my_game
+      - POSTGRES_USER=player
+      - POSTGRES_PASSWORD=my_pass
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - .:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    networks:
+      - deploy_network
+
+  admin_api:
+    build:
+      context: ./admin_api
+      dockerfile: Dockerfile
+    volumes:
+      - ./admin_api:/app
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - deploy_network
+
+  vk_bot:
+    build:
+      context: ./vk_bot
+      dockerfile: Dockerfile
+    volumes:
+      - ./vk_bot:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    networks:
+      - deploy_network
+
+
+volumes:
+  pgdata:
+
+networks:
+  deploy_network:
+    driver: bridge
